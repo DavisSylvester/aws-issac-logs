@@ -1,16 +1,13 @@
+import { MicroService } from '@sylvesterllc/aws-constructs';
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { microServiceProps } from '../config/config';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class AwsIssacLogsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'AwsIssacLogsQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    new MicroService(this, 'Microservice', microServiceProps);
   }
 }
